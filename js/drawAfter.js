@@ -1,10 +1,24 @@
 const things = ["red", "green", "blue"];
+const ulEl = document.getElementById("ul");
+let readyColors = [];
 
-function getThings() {
+function getThings(callback) {
   setTimeout(() => {
-    return things;
+    readyColors = things;
+    callback();
   }, 2000);
 }
 
-const result = getThings();
-console.log("result===", result);
+function drawThings() {
+  const stringElements = readyColors
+    .map((col) => {
+      return ` <li>${col}</li>`;
+    })
+    .join("");
+  //   console.log("stringElements===", stringElements);
+  ulEl.innerHTML = stringElements;
+}
+
+getThings(drawThings);
+// drawThings();
+console.log("readyColors===", readyColors);
