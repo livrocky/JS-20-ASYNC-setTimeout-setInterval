@@ -15,7 +15,7 @@ function drawThings() {
       return ` <li>${col}</li>`;
     })
     .join("");
-  //   console.log("stringElements===", stringElements);
+  //   console.log("stringElements===", stringElements);..
   ulEl.innerHTML = stringElements;
 }
 
